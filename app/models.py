@@ -12,6 +12,9 @@ class User(db.Model):
     student_id = db.Column(db.String(15), unique=True, nullable=False)
     rentals = db.relationship('Rental', backref='user', lazy=True)
 
+    def __repr__():
+        return f"User: ('{self.username}', '{self.email}"
+
 class Bicycle(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     model = db.Column(db.String(45), nullable=False)
