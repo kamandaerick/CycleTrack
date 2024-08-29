@@ -15,10 +15,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('register') }}">Register</a>
                 </li>
-                <!-- Add more nav links as needed -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
             </ul>
         </div>
     </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
     <div class="container">
         {% block body %}
         {% endblock body %}
