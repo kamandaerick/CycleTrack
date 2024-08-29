@@ -1,5 +1,5 @@
 from flask import Flask
-from models import db, User
+from models import db, User, Rental, Bicycle
 from flask import render_template, url_for, flash, redirect
 from flask_login import LoginManager, login_user, logout_user, login_required
 from forms import RegistrationForm, LoginForm
@@ -57,6 +57,25 @@ def login():
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', title='Login', form=form)
+
+@app.route('/rent', methods=['GET', 'POST'])
+@login_required
+def rent():
+    form = RentalForm()
+    if form.validate_on_submit():
+        bicycle = Bicycle.query.get(form.bicycle_id.data)
+        rental = Rental(
+            rental_time=form.rental_time.data,
+            status='rented',
+            user_id=current_user.id,
+            bicycle_id=bicycle.id
+        )
+        bicycle.availability = False
+        db.session.add(rental)
+        db.session.commit()
+        flash(f'Bicycle {bicycle.model} has been rented successfully!', 'success')
+        return redirect(url_for('home'))
+    return render_template('rent.html', title='Rent a Bicycle', form=form)
 
 @login_manager.user_loader
 def load_user(user_id):
