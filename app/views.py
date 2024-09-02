@@ -95,9 +95,16 @@ def return_bicycle(rental_id):
         flash('This bicycle has already been returned.', 'info')
         return redirect(url_for('main.rental_history'))
 
+    rental_end_time = datetime.now()
+    rental_duration = rental_end_time - rental.rental_time
+    rental_duration_minutes = rental_duration.total_seconds() / 60
+    
+    # Calculate the amount to be paid based on duration (e.g., $1 per minute)
+    amount_due = rental_duration_minutes * 2  # Example rate: Ksh 2 per minute
     # Update the rental record with the return time
     rental.return_time = datetime.utcnow()
     rental.status = 'Returned'
+    rental.amount_due = amount_due
 
     # Update bicycle availability
     rental.bicycle.availability = True
@@ -105,7 +112,7 @@ def return_bicycle(rental_id):
     # Save changes to the database
     db.session.commit()
 
-    flash('You have successfully returned the bicycle!', 'success')
+    flash(f'Bicycle returned successfully! Total duration: {rental_duration_minutes:.2f} minutes. Amount due: Ksh {amount_due:.2f}', 'success')
     return redirect(url_for('main.rental_history'))
 
 

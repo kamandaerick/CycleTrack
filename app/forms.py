@@ -18,7 +18,6 @@ class LoginForm(FlaskForm):
 
 class RentalForm(FlaskForm):
     bicycle_id = SelectField('Bicycle', coerce=int, validators=[DataRequired()])
-    # rental_time = DateTimeField('Rental Time', format='%Y-%m-%d %H:%M:%S', validators=[DataRequired()])
     rental_time = TimeField('Rental Time', format='%H:%M', validators=[DataRequired()])
     submit = SubmitField('Rent Bicycle')
 
