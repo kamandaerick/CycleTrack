@@ -15,6 +15,7 @@
                     <th>Rental Time</th>
                     <th>Return Time</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +34,14 @@
                             {% endif %}
                         </td>
                         <td>{{ rental.status }}</td>
+                        <td>
+                            {% if not rental.return_time %}
+                            <form method="POST" action="{{ url_for('main.return_bicycle', rental_id=rental.id) }}">
+                               
+                                <button type="submit" class="btn btn-danger">Return</button>
+                            </form>
+                            {% endif %}
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

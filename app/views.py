@@ -85,6 +85,30 @@ def rent():
     
     return render_template('rent.html', title='Rent a Bicycle', form=form)
 
+@main.route('/return/<int:rental_id>', methods=['POST'])
+@login_required
+def return_bicycle(rental_id):
+    rental = Rental.query.get_or_404(rental_id)
+
+    # Check if the rental is already returned
+    if rental.return_time:
+        flash('This bicycle has already been returned.', 'info')
+        return redirect(url_for('main.rental_history'))
+
+    # Update the rental record with the return time
+    rental.return_time = datetime.utcnow()
+    rental.status = 'Returned'
+
+    # Update bicycle availability
+    rental.bicycle.availability = True
+
+    # Save changes to the database
+    db.session.commit()
+
+    flash('You have successfully returned the bicycle!', 'success')
+    return redirect(url_for('main.rental_history'))
+
+
 @main.route("/rental_history")
 @login_required
 def rental_history():
