@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, SelectField, DateTimeField
+from wtforms import StringField, PasswordField, SubmitField, SelectField, DateTimeField, TimeField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
-from models import Bicycle
+from app.models import Bicycle, User, Rental
 
 class RegistrationForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=2, max=45)])
@@ -18,7 +18,8 @@ class LoginForm(FlaskForm):
 
 class RentalForm(FlaskForm):
     bicycle_id = SelectField('Bicycle', coerce=int, validators=[DataRequired()])
-    rental_time = DateTimeField('Rental Time', format='%Y-%m-%d %H:%M:%S', validators=[DataRequired()])
+    # rental_time = DateTimeField('Rental Time', format='%Y-%m-%d %H:%M:%S', validators=[DataRequired()])
+    rental_time = TimeField('Rental Time', format='%H:%M', validators=[DataRequired()])
     submit = SubmitField('Rent Bicycle')
 
     def __init__(self, *args, **kwargs):

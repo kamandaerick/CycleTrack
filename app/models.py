@@ -20,6 +20,7 @@ class Bicycle(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     model = db.Column(db.String(45), nullable=False)
     availability = db.Column(db.Boolean, default=True, nullable=False)
+    image_file = db.Column(db.String(120), nullable=False, default='default.jpg')
     rentals = db.relationship('Rental', backref='bicycle', lazy=True)
 
 class Rental(db.Model):

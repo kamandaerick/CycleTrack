@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Rental History
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2>Rental History</h2>
+    {% if rentals %}
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Bicycle</th>
+                    <th>Rental Time</th>
+                    <th>Return Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rental in rentals %}
+                    <tr>
+                        <td>
+                            <img src="{{ url_for('static', filename='images/' + rental.bicycle.image_file) }}" alt="{{ rental.bicycle.model }}" class="img-fluid" style="max-width: 100px; height: auto;">
+                            <br>{{ rental.bicycle.model }}
+                        </td>
+                        <td>{{ rental.rental_time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                        <td>
+                            {% if rental.return_time %}
+                                {{ rental.return_time.strftime('%Y-%m-%d %H:%M:%S') }}
+                            {% else %}
+                                Not Returned
+                            {% endif %}
+                        </td>
+                        <td>{{ rental.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>You have no rental history.</p>
+    {% endif %}
+</div>
+{% endblock body %}
