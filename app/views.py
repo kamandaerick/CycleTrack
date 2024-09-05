@@ -104,7 +104,7 @@ def return_bicycle(rental_id):
     # Update the rental record with the return time
     rental.return_time = datetime.utcnow()
     rental.status = 'Returned'
-    rental.amount_due = amount_due
+    rental.amount_due = round(amount_due, 2)
 
     # Update bicycle availability
     rental.bicycle.availability = True

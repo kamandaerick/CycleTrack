@@ -30,3 +30,4 @@ class Rental(db.Model):
     status = db.Column(db.String(45), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     bicycle_id = db.Column(db.Integer, db.ForeignKey('bicycle.id'), nullable=False)
+    amount_due = db.Column(db.Float, nullable=True)  # Add this field
