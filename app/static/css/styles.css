@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 body, html {
@@ -13,11 +14,224 @@ body, html {
     margin: 0;
     padding: 0;
 }
-
+.collapse {
+    background-color: black;
+    padding: 25px;
+    color:white;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.navbar-brand {
+    background-color: black;
+    padding: 30px;
+    color:white;
+    font-family: 'Times New Roman', Times, serif;
+}
+.navbar-brand:hover{
+    color:#FF5722;
+}
+.nav-link {
+    color: white;
+}
+.nav-link:hover {
+    color: #FF5722;
+}
 .main {
-    background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), url("../images/main.png");
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), url("../images/hero.png");
     background-size: cover;
     background-position: center;
     height: 100vh;
     background-repeat: no-repeat;
+}
+.content{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.content h1{
+    font-size: 50px;
+    margin-top: 20%;
+    letter-spacing: 2px;
+}
+.content .par {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+.content .explore {
+    width: 180px;
+    height: 45px;
+    background: #FF5722;
+    border:none;
+    color:white;
+    margin: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    transition: .4s ease-in-out;
+}
+.explore:hover{
+    background-color: white;
+    color:#FF5722;
+    transform: scale(1.1);
+}
+.about {
+    background-color: #f8f8f8;
+    overflow: hidden;
+}
+.heading h1 {
+    color:#FF5722;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 35px;
+    padding: 20px;
+}
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 40px auto;
+}
+.about-content {
+    flex:1;
+    width: 600px;
+    margin:0px 25px;
+}
+.about-content h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+    color:#333;
+}
+.about-content p {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color:#666;
+}
+.about-img{
+    flex:1;
+    width:600px;
+    margin:auto;
+}
+.about-img img {
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+}
+.about-content button {
+    display: inline;
+    background-color:#FF5722;
+    color:#fff;
+    padding: 10px 20px;
+    border:none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+}
+.about-content button:hover {
+    background-color: black;
+    transform: scale(1.1);
+}
+.how-it-works {
+    text-align: center;
+    margin-top: 30px;
+    color: #FF5722;
+}
+.how-it-works h1 {
+    font-size: 32px;
+}
+.steps-container {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.steps{
+    width:280px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+    margin: 10px;
+}
+.steps img {
+    width:100%;
+    height:auto;
+}
+.steps-content {
+    padding:16px;
+}
+.steps-content h3{
+    font-size: 18px;
+    margin-bottom: 8px;
+    color:#FF5722;
+    text-align: center;
+}
+.steps-content p {
+    color:#666;
+    font-size: 15px;
+    line-height: 1.3;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-left: 5%;
+    width: 90%;
+    height: 80px;
+    background-color: #FF5722;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.social-icons a {
+    text-decoration: none;
+    padding: 10px;
+    border-color: white;
+    border-radius: 50%;
+}
+.social-icons a i {
+    font-size: 3em;
+    color: white;
+    opacity: 0.9;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-bottom: 10px;
+}
+.social-icons a .repo {
+    color:white;
+}
+.social-icons h3 {
+    color:white;
+    padding-top: 18px;
+    font-size: 32px;
+}
+.social-icons a:hover {
+    background-color: black;
+    transition: .5s ease;
+}
+
+
+
+footer {
+    background-color: black;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+footer h1 {
+    color:white;
+    margin-top: 100px;
+    padding-top: 50px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+video {
+    width:100%;
+    justify-content: center;
 }

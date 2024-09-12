@@ -9,18 +9,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('main.home') }}">CycleTrack</a>
+    <nav class="navbar navbar-expand-lg  bg-light">
+        <a class="navbar-brand" href="{{ url_for('main.home') }}">CYCLETRACK</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.bikes') }}">Available Bikes</a>
+                    <a class="nav-link" href="{{ url_for('main.bikes') }}">AVAILABLE BIKES</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.register') }}">Register</a>
+                    <a class="nav-link" href="{{ url_for('main.register') }}">REGISTER</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.login') }}">Login</a>
+                    <a class="nav-link" href="{{ url_for('main.login') }}">LOGIN</a>
                 </li>
             </ul>
         </div>
@@ -41,10 +41,15 @@
         {% block body %}
         {% endblock body %}
     </div>
-    
+    <footer>
+        <div>
+            <h1>Copyright &copy; 2024; Designed by Erick Kamanda</h1>
+        </div>
+    </footer>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/0d973cef31.js" crossorigin="anonymous"></script>
 </body>
 </html>
