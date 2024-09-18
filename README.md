@@ -50,7 +50,7 @@ Follow the steps below to install and set up CycleTrack on your local machine:
 4. **Set Up Database**:
    - Create the database:
      ```sql
-     CREATE DATABASE cycletrack_db;
+     CREATE DATABASE bicycle_rental;
      ```
    - Update your database configuration in `config.py` (MySQL or SQLite).
 
