@@ -81,7 +81,7 @@ def rent():
             return redirect(url_for('main.rent'))
         
         flash('You have successfully rented the bicycle!', 'success')
-        return redirect(url_for('main.home'))
+        return redirect(url_for('main.rental_history'))
     
     return render_template('rent.html', title='Rent a Bicycle', form=form)
 
